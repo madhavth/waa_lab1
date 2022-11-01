@@ -1,9 +1,8 @@
 package com.example.lab1.controller.impl;
 
-import com.example.lab1.domain.PostV2;
 import com.example.lab1.domain.dto.response.PostDto;
 import com.example.lab1.domain.dto.response.PostV2Dto;
-import com.example.lab1.service.impl.PostService;
+import com.example.lab1.service.impl.PostServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +16,7 @@ import java.util.List;
 public class PostController {
 
     @Autowired
-    PostService postService;
+    PostServiceImpl postService;
 
     @GetMapping()
     public List<PostDto> getAllPosts(@RequestParam(required = false, name = "author") String author) {

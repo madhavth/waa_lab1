@@ -1,4 +1,4 @@
-package com.example.lab1.repo.impl;
+package com.example.lab1.repo;
 
 import com.example.lab1.domain.dto.Post;
 import com.example.lab1.domain.dto.response.PostDto;

@@ -1,9 +1,8 @@
 package com.example.lab1.repo.impl;
 
 import com.example.lab1.domain.dto.Post;
-import com.example.lab1.domain.dto.response.PostDto;
+import com.example.lab1.repo.PostRepo;
 
-import org.apache.commons.math3.stat.descriptive.summary.Product;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -11,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Repository
-class PostRepoImpl implements PostRepo {
+public class PostRepoImpl implements PostRepo {
 
     private static List<Post> postsList;
     private static int postId = 100;
