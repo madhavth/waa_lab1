@@ -2,10 +2,7 @@ package com.example.lab2.domain;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,9 +11,10 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
+@Entity(name = "users")
 @Data
 public class User {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     long id;
     String name;
