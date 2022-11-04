@@ -15,12 +15,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Data
 public class User {
     @Id
-    private long id;
-    private String name;
+    long id;
+    String name;
 
     @OneToMany
     @JoinColumn(name = "user_id")
-    private List<Post> post;
+    List<Post> posts;
 }
