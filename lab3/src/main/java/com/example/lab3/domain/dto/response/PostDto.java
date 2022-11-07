@@ -1,5 +1,7 @@
 package com.example.lab3.domain.dto.response;
 
+import com.example.lab3.domain.User;
+
 import java.util.List;
 
 import javax.persistence.Entity;

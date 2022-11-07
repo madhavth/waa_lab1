@@ -8,11 +8,11 @@ import java.util.List;
 public interface UserService {
     List<UserDto> findAll();
 
-    UserDto findUserById(int id);
+    UserDto findUserById(long id);
 
     void addUser(UserDto userDto);
 
-    List<PostDto> getUserPosts(int id);
+    List<PostDto> getUserPosts(long id);
 
     List<UserDto> findAllPostGreaterThan(int n);
 }
