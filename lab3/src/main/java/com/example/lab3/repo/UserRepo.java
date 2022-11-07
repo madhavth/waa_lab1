@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface UserRepo extends CrudRepository<User, Integer> {
+public interface UserRepo extends CrudRepository<User, Long> {
     List<User> findAll();
 
     @Query("select u from users u where u.posts.size > :n")

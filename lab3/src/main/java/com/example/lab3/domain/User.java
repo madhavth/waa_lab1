@@ -1,5 +1,8 @@
 package com.example.lab3.domain;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import java.util.List;
 
 import javax.persistence.*;
@@ -14,10 +17,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     String name;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
+    @Fetch(FetchMode.SELECT)
     List<Post> posts;
 }

@@ -1,5 +1,8 @@
 package com.example.lab3.domain;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import java.util.List;
 
 import javax.persistence.*;
@@ -19,8 +22,8 @@ public class Post {
     String content;
     String title;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id")
+    @Fetch(FetchMode.SELECT)
     List<Comment> comments;
-
 }

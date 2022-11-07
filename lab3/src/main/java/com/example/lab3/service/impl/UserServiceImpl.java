@@ -29,7 +29,7 @@ class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto findUserById(int id) {
+    public UserDto findUserById(long id) {
         return modelMapper.map(userRepo.findById(id).orElse(null), UserDto.class);
     }
 
@@ -39,7 +39,7 @@ class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<PostDto> getUserPosts(int id) {
+    public List<PostDto> getUserPosts(long id) {
         User user = userRepo.findById(id).orElse(null);
         return user.getPosts().stream().map(p -> modelMapper.map(p, PostDto.class)).collect(Collectors.toList());
     }
