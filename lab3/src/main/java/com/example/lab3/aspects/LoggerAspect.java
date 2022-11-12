@@ -61,9 +61,9 @@ public class LoggerAspect {
         logger.setOperation(jointPoint.getSignature().getName());
 
         // fake user principle
-        User user = new User();
-        user.setName("Fake User");
-        logger.setPrinciple(user);
+//        User user = new User();
+//        user.setName("Fake User");
+        logger.setPrinciple("Fake User");
         loggerRepo.save(logger);
     }
 

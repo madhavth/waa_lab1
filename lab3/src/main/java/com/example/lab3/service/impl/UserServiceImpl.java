@@ -8,6 +8,7 @@ import com.example.lab3.service.UserService;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +19,9 @@ import java.util.stream.Stream;
 class UserServiceImpl implements UserService {
     @Autowired
     public ModelMapper modelMapper;
+
+    @Autowired
+    public PasswordEncoder passwordEncoder;
 
     @Autowired
     public UserRepo userRepo;
@@ -35,6 +39,7 @@ class UserServiceImpl implements UserService {
 
     @Override
     public void addUser(UserDto userDto) {
+        userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
         userRepo.save(modelMapper.map(userDto, User.class));
     }
 

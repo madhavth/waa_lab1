@@ -24,8 +24,8 @@ public class Logger {
 
     LocalTime time;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    User principle;
+//    @OneToOne(cascade = CascadeType.ALL)
+    String principle;
 
     String operation;
 }
