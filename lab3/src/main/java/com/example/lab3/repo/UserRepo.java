@@ -15,4 +15,6 @@ public interface UserRepo extends CrudRepository<User, Long> {
 
     @Query("select u from users u where u.posts.size > :n")
     List<User> findAllPostGreaterThan(int n);
+
+    User findUserByName(String userName);
 }

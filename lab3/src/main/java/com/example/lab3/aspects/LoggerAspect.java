@@ -1,23 +1,18 @@
 package com.example.lab3.aspects;
 
-import com.example.lab3.domain.Exception;
+import com.example.lab3.domain.MyException;
 import com.example.lab3.domain.Logger;
 import com.example.lab3.domain.User;
 import com.example.lab3.repo.ExceptionRepo;
 import com.example.lab3.repo.LoggerRepo;
 
-import net.bytebuddy.implementation.bytecode.Throw;
-
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.hibernate.mapping.Join;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Aspect
@@ -42,16 +37,16 @@ public class LoggerAspect {
     @AfterThrowing(value = "allMethodExecutions()", throwing = "exception", argNames = "joinPoint,exception")
     public void afterExceptionThrown(JoinPoint joinPoint, java.lang.Exception exception) {
         String exceptionType = exception.getClass().getName();
-        Exception customException = new Exception();
+        MyException customException = new MyException();
 
         customException.setDate(LocalDate.now());
         customException.setTime(LocalTime.now());
         customException.setExceptionType(exceptionType);
 
         // custom fake user
-        User user = new User();
-        user.setName("Testing fake user");
-        customException.setPrinciple(user);
+//        User user = new User();
+//        user.setName("Testing fake user");
+        customException.setPrinciple("Fake User");
 
         customException.setOperation(joinPoint.getSignature().getName());
         exceptionRepo.save(customException);

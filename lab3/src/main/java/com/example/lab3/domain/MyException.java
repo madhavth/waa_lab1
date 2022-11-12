@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
-public class Exception {
+public class MyException {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,8 +24,7 @@ public class Exception {
 
     LocalTime time;
 
-    @OneToOne(cascade = CascadeType.MERGE)
-    User principle;
+    String principle;
 
     String operation;
 
