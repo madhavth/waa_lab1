@@ -1,20 +1,20 @@
 spring:
   application:
-    name: spring-data-demo-1
+    name: waa_lab6
   datasource:
-    password: 1
-    url: jdbc:postgresql://localhost:5432/spring-data-demo
     username: postgres
+    url: jdbc:postgresql://localhost:5432/waa_lab6
+    password: 12345
   jpa:
     hibernate:
       ddl-auto: create-drop
+    generate-ddl: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
     show-sql: true
     defer-datasource-initialization: true
-    generate-ddl: true
   sql:
     init:
       mode: always
