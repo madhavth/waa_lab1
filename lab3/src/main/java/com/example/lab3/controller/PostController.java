@@ -14,6 +14,7 @@ import java.util.List;
 
 @RequestMapping("/posts")
 @RestController
+@CrossOrigin(allowedHeaders = "*", origins = "*")
 public class PostController {
 
     @Autowired

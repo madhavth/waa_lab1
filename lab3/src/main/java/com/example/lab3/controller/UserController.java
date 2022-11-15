@@ -12,6 +12,7 @@ import java.util.List;
 
 @RequestMapping("/users")
 @RestController
+@CrossOrigin(allowedHeaders = "*", origins = "*")
 public class UserController {
 
     @Autowired
@@ -19,8 +20,6 @@ public class UserController {
 
     @GetMapping
     public List<UserDto> getUsers() {
-
-        System.out.println("DFDASDFASDF");
         return userService.findAll();
     }
 
