@@ -34,4 +34,26 @@ public class PostServiceImpl implements PostService {
                         post -> modelMapper.map(post, PostDto.class))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public void deletePost(int id) {
+        postRepo.deleteById(id);
+    }
+
+    @Override
+    public PostDto getPost(int id) {
+        Post post = postRepo.findById(id).orElse(null);
+        return modelMapper.map(post, PostDto.class);
+    }
+
+    @Override
+    public void savePost(PostDto postDto) {
+        postRepo.save(modelMapper.map(postDto, Post.class));
+    }
+
+    @Override
+    public void updatePost(int id, PostDto postDto) {
+        postDto.setId(id);
+        postRepo.save(modelMapper.map(postDto, Post.class));
+    }
 }

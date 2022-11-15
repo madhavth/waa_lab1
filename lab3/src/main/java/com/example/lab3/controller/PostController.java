@@ -6,10 +6,9 @@ import com.example.lab3.repo.PostRepo;
 import com.example.lab3.service.PostService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.lang.UsesSunHttpServer;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +28,26 @@ public class PostController {
     @GetMapping
     public List<PostDto> findAllPostsWithTitle(@RequestParam(required = false) String title) {
         return postService.getPostsWithTitle(title);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deletePost(@PathVariable("id") int id) {
+        postService.deletePost(id);
+    }
+
+    @GetMapping("/{id}")
+    public PostDto getPostById(@PathVariable("id") int id) {
+        return postService.getPost(id);
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping
+    public void addPost(@RequestBody PostDto postDto) {
+        postService.savePost(postDto);
+    }
+
+    @PutMapping("/{id}")
+    public void updatePost(@RequestBody PostDto postDto, @PathVariable("id") int id) {
+        postService.updatePost(id, postDto);
     }
 }
