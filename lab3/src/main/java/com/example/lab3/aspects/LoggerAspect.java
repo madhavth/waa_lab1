@@ -49,9 +49,9 @@ public class LoggerAspect {
         customException.setExceptionType(exceptionType);
 
         // custom fake user
-        User user = new User();
-        user.setName("Testing fake user");
-        customException.setPrinciple(user);
+//        User user = new User();
+//        user.setName("Testing fake user");
+//        customException.setPrinciple(user);
 
         customException.setOperation(joinPoint.getSignature().getName());
         exceptionRepo.save(customException);
@@ -66,9 +66,9 @@ public class LoggerAspect {
         logger.setOperation(jointPoint.getSignature().getName());
 
         // fake user principle
-        User user = new User();
-        user.setName("Fake User");
-        logger.setPrinciple(user);
+//        User user = new User();
+//        user.setName("Fake User");
+//        logger.setPrinciple(user);
         loggerRepo.save(logger);
     }
 

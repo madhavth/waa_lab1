@@ -18,6 +18,7 @@ public class Post {
     Integer id;
     String content;
     String title;
+    String author;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "post_id")
