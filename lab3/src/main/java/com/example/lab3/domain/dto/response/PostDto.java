@@ -16,5 +16,6 @@ class PostDto {
    Integer id;
    String content;
    String title;
+   String author;
    List<CommentDto> comments;
 }
